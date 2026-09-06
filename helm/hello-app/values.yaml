@@ -1,0 +1,50 @@
+# Default values for hello-app Helm chart
+
+namespace: hello-app
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: 123456789012.dkr.ecr.us-east-1.amazonaws.com/hello-frontend
+    tag: latest
+    pullPolicy: Always
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 80
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 250m
+      memory: 256Mi
+
+backend:
+  replicaCount: 2
+  image:
+    repository: 123456789012.dkr.ecr.us-east-1.amazonaws.com/hello-backend
+    tag: latest
+    pullPolicy: Always
+  service:
+    type: ClusterIP
+    port: 8000
+    targetPort: 8000
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 250m
+      memory: 256Mi
+
+ingress:
+  enabled: true
+  className: alb
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+  paths:
+    frontend: /
+    backend: /api
