@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-org/gitops-manifests.git'
+    repoURL: 'https://github.com/capstone-devops/gitops-manifests.git'
     targetRevision: HEAD
     path: helm/hello-app
   destination:

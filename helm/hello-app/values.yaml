@@ -5,7 +5,7 @@ namespace: hello-app
 frontend:
   replicaCount: 2
   image:
-    repository: 123456789012.dkr.ecr.us-east-1.amazonaws.com/hello-frontend
+    repository: 559988776655.dkr.ecr.us-east-1.amazonaws.com/hello-frontend
     tag: latest
     pullPolicy: Always
   service:
@@ -23,7 +23,7 @@ frontend:
 backend:
   replicaCount: 2
   image:
-    repository: 123456789012.dkr.ecr.us-east-1.amazonaws.com/hello-backend
+    repository: 559988776655.dkr.ecr.us-east-1.amazonaws.com/hello-backend
     tag: latest
     pullPolicy: Always
   service:
